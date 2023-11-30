@@ -12,9 +12,9 @@ import { FormGroup } from '@angular/forms';
 })
 export class Machinetest1listComponent implements OnInit {
   product: any;
-  page: number = 1;
+  page: number = 1;// use for pagination perpose
   isOnline: boolean = true;
-  darkMode = false;
+  darkMode = false;// means always dark mode is off              
   form!: FormGroup;
   searchTerm: string = '';
 
@@ -40,16 +40,18 @@ export class Machinetest1listComponent implements OnInit {
       darkMode: new FormGroup(this.darkMode),
     });
   }
+  // logout btn code
   logout() {
     localStorage.removeItem('userData');
     this.rout.navigate(['MachineLogin']);
   }
-
+ // use to toggle the dark mode
   toggleDarkMode() {
     this.darkMode = !this.darkMode;
     this.form.patchValue({ darkMode: this.darkMode });
   }
 
+  // search bar code
   get filteredProducts() {
     if (!this.searchTerm.trim()) {
       return this.product;
