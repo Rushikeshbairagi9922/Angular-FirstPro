@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "Productid": 200,
+            "ProductName": "Mobile",
+            "Price": 35000
+        },
+        {
+            "Productid": 300,
+            "ProductName": "Laptop",
+            "Price": 54000
+        },
+        {
+            "Productid": 400,
+            "ProductName": "Pendrive",
+            "Price": 500
+        },
+        {
+            "Productid": 600,
+            "ProductName": "HeadPhone",
+            "Price": 3500
+        }
+    ]
+}

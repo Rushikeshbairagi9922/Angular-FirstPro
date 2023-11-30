@@ -1,0 +1,28 @@
+table  {
+    border : 2px solid black;
+
+}
+
+table th{
+    background-color: #4CAF50;
+    color: white;
+}
+
+table td{
+
+   text-align: center;
+   /* width: 70px; */
+}
+
+.odd{
+    background-color: aqua;
+}
+.even{
+    background-color: aquamarine;
+}
+
+button{
+    width: 7rem;
+    height: 2rem;
+    margin: 0.5rem;
+}

@@ -1,0 +1,57 @@
+<h1>{{ title }}</h1>
+<button (click)="show = !show">{{ show ? "hide" : "show" }}</button>
+<table>
+  <tr>
+    <th >Sr No.</th>
+    <th >Movie Title</th>
+    <th>Director</th>
+    <th>Year</th>
+    <th>Ticket Price</th>
+  </tr>
+  <tbody *ngIf="show == true; else elseBlock">
+    <tr
+      *ngFor="let move of movies; let o = odd; let e = even"
+      [ngClass]="{ odd: o, even: e }"
+    >
+      <td colspan="1">{{ move.id }}</td>
+      <td >{{ move.name }}</td>
+      <td >{{ move.director }}</td>
+      <td>{{ move.year }}</td>
+      <td>{{ move.ticketPrice }}</td>
+    </tr>
+  </tbody>
+  <ng-template #elseBlock>
+    <tr>
+      <td colspan="5" style="background-color: aquamarine;">No movie Avialable</td>
+    </tr>
+  </ng-template>
+</table>
+
+<p>----------------------------------------------------------------------</p>
+Enter color Name:<input type="text" name="color" [(ngModel)] = "color" id="" style="margin: 10px;">
+<div [ngSwitch]="color" >
+    <div *ngSwitchCase="'red'" style="color: red;">color is red</div>
+    <div *ngSwitchCase="'black'" style="color: black;">color is black</div>
+    <div *ngSwitchCase="'blue'" style="color: blue;">color is blur</div>
+    <div *ngSwitchCase="'green'" style="color: green;">color is green</div>
+</div>
+
+<p>----------------------------------------------------------------------</p>
+Enter number:<input type="text" name="num" [(ngModel)] = "num" id="" style="margin: 10px;">
+<div [ngSwitch]="num" >
+    <div *ngSwitchCase="'1'" >ONE</div>
+    <div *ngSwitchCase="'2'" >TWO</div>
+    <div *ngSwitchCase="'3'" >THREE</div>
+    <div *ngSwitchCase="'4'" >FOUR</div>
+    <div *ngSwitchCase="'5'" >fIVE</div>
+<!-- </div>
+<video width="320" height="240" controls="controls " autoplay  >
+  <source src="https://youtu.be/y5XoL2aTgVY?si=rAy2SqRU-AXIlb5B" type="video/mp4" />
+</video>
+<div ><video src="https://youtu.be/y5XoL2aTgVY?si=rAy2SqRU-AXIlb5B"></video>video</div>
+
+<video width="320" height="240" controls autoplay>
+  <source src="https://youtu.be/y5XoL2aTgVY?si=rAy2SqRU-AXIlb5B | safe" type="video/mp4" />
+  Your browser does not support the video tag.
+</video> -->
+<app-taskngif-ngfor></app-taskngif-ngfor>

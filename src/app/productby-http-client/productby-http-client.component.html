@@ -1,0 +1,31 @@
+<p>productby-http-client works!</p>
+
+<table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      
+    </tr>
+    <tr *ngFor="let p of product">
+      <td>{{ p.Productid }}</td>
+      <td>{{ p.ProductName }}</td>
+      <td>{{ p.Price }}</td>
+      
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>last Name</th>
+<th>email</th>      
+    </tr>
+    <tr *ngFor="let p of product">
+      <td>{{ p.id }}</td>
+      <td>{{ p.first_name }}</td>
+      <td>{{ p.last_name }}</td>
+      <td>{{p.email}}</td>
+      <td><img src="{{p.avatar}}" alt=""></td>
+    </tr>
+  </table>

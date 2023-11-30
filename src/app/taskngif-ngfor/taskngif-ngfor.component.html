@@ -1,0 +1,46 @@
+<!-- <p>taskngif-ngfor works!</p>
+A. Create an angular application in which you need to implement direct concepts *ngif and
+*ngfor
+1. Create a product component with the following data
+products: any[] = [{productId: 1,productName: 'Smartphone', price: 499.99, category:
+'Electronics', discount: 10},
+ {productId: 2, productName: 'Laptop', price: 999.99, category: 'Electronics', discount: 15},
+ {productId: 3,productName: 'Running Shoes', price: 79.99, category: 'Sports', dscount: 5},
+ {productId: 4,productName: 'Dress Shirt', price: 49.99, category: 'Clothing', discount: 0},
+ {productId: 5,productName: 'Cookware Set', price: 149.99, category: 'Kitchen', discount:
+20 },
+ {productId: 6,productName: 'Headphones', price: 129.99, category: 'Electronics', discount:
+10},
+ {productId: 7,productName: 'Fiction Book', price: 14.99, category: 'Books', discount: 0}]
+2. Display all the products in tabular format
+3. Display the product with a discount which has more than 10 %
+4. Take the category from the user and show all the products that belong to that category -->
+
+<h1>Product Data..1</h1>
+<button (click)="show = !show">{{ show ? "hide" : "show" }}</button>
+<table>
+  <tr>
+    <th >Product Id.</th>
+    <th >product Name</th>
+    <th>price</th>
+    <th>category</th>
+    <th>discount</th>
+  </tr>
+  <tbody *ngIf="show == true; else elseBlock">
+    <tr
+      *ngFor="let pro of products; let o = odd; let e = even"
+      [ngClass]="{ odd: o, even: e }"
+    >
+      <td colspan="1">{{ pro.productId }}</td>
+      <td >{{ pro.productName }}</td>
+      <td >{{ pro.price }}</td>
+      <td>{{ pro.category }}</td>
+      <td>{{ pro.discount }}</td>
+    </tr>
+  </tbody>
+  <ng-template  #elseBlock>
+    <tr>
+      <td colspan="5" style="background-color: aquamarine;">No Product Avialable</td>
+    </tr>
+  </ng-template>
+</table>

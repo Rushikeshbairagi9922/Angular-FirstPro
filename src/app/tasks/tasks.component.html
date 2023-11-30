@@ -1,0 +1,46 @@
+<p>tasks works!</p>
+<div>
+    <input type="number" [(ngModel)]="p" placeholder="Enter p">
+    <input type="number" [(ngModel)]="c" placeholder="Enter c">
+    <input type="number" [(ngModel)]="m" placeholder="Enter m">
+  
+    <button (click)="totalPercentage()">Calculate Total Percentage</button>
+  
+    <p *ngIf="result1 !== null">Total Percentage: {{ result1 }}%</p>
+  </div>
+  
+  <div>
+    <input type="number" [(ngModel)]="num1" placeholder="Enter num1"><br>
+    <input type="number" [(ngModel)]="num2" placeholder="Enter num2"><br>
+  
+    <button (click)="add()">Add</button><br>
+    <button (click)="sub()">Subtract</button><br>
+    <button (click)="mul()">Multiply</button><br>
+    <button (click)="div()">Divide</button><br>
+  
+    <p *ngIf="result !== null">Result: {{ result }}</p>
+  </div>
+
+  <div>
+    <p>
+      <strong>Product Details:</strong><br>
+      Product: {{ Product }}<br>
+      Price: {{ Price }}<br>
+      Tax: {{ Tax }}<br>
+      Discount: {{ Discount }}
+    </p>
+  </div>
+
+
+  <div>
+    <h3>Employee Salary Calculator</h3>
+    <input type="number" [(ngModel)]="basic" placeholder="Enter Basic Salary">
+    <input type="number" [(ngModel)]="pf" placeholder="Enter PF">
+    <input type="number" [(ngModel)]="hra" placeholder="Enter HRA">
+    <input type="number" [(ngModel)]="da" placeholder="Enter DA">
+    <input type="number" [(ngModel)]="tax" placeholder="Enter Tax">
+  
+    <button (click)="employeeSal()">Calculate Employee Salary</button>
+  
+    <p *ngIf="result2 !== null">Employee Salary: {{ result2 }}</p>
+  </div>

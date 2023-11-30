@@ -1,0 +1,13 @@
+<p>templetdemo works!</p>
+
+<form #loginInfo="ngForm" (ngSubmit)="onSubmit(loginInfo)" >
+
+    <label>Full Name</label>
+    <input type="text" name="fullname" id="fullname" ngModel>
+    <label>Email</label>
+    <input type="text" name="email" id="email" ngModel>
+    <label>Password</label>
+    <input type="password" name="password" id="password" ngModel>
+    <button type="submit">Submit</button>
+
+</form>

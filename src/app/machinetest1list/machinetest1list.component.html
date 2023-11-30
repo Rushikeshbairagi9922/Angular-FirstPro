@@ -1,0 +1,90 @@
+<body
+  [ngClass]="{ 'table-container-dark': darkMode, 'table-container': !darkMode }"
+>
+  <div *ngIf="isOnline" class="table-container">
+    <div class="dark-mode-toggle form-check form-switch">
+      <label>
+        <input
+          type="checkbox"
+          class="form-check-input"
+          formControlName="darkMode"
+          (change)="toggleDarkMode()"
+        />
+        <label class="text-dark">Dark</label>
+      </label>
+    </div>
+    <div class="row justify-content-between">
+      <h1 class="text-center text-success col">Product List</h1>
+      <div class="table-responsive col-md-3">
+        <div class="search-bar mt-2 p-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by title, category, brand, etc."
+            [(ngModel)]="searchTerm"
+          />
+        </div>
+      </div>
+      <h6 class="col-md-1 mt-4 ">Search</h6>
+
+      <table class="table">
+        <thead>
+          <tr class="table-success">
+            <th class="text-center">Id</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Category</th>
+            <th class="text-center">Price ($)</th>
+            <th class="text-center">Brand</th>
+            <th class="text-center">Discount</th>
+            <th class="text-center">Rating</th>
+            <th class="text-center">Image</th>
+          </tr>
+        </thead>
+
+        <tr
+          *ngFor="
+            let p of filteredProducts
+              | paginate : { itemsPerPage: 5, currentPage: page }
+          "
+        >
+          <td class="text-center mt-1">
+            <a [routerLink]="['/productdetail', p.id]" >{{ p.id }}</a>
+          </td>
+          <td class="text-center">{{ p.title }}</td>
+          <td class="text-center">{{ p.category }}</td>
+          <td class="text-center">${{ p.price }}</td>
+          <td class="text-center">{{ p.brand }}</td>
+          <td class="text-center">{{ p.discountPercentage }}%</td>
+          <td class="text-center">{{ p.rating }}</td>
+
+          <td class="text-center mt-3">
+            <img
+              src="{{ p.thumbnail }}"
+              style="height: 80px"
+              class="img-thumbnail"
+            />
+          </td>
+        </tr>
+      </table>
+      <div class="row mt-5">
+        <div class="pagination-controls col-md-6 mx-auto">
+          <pagination-controls
+            (pageChange)="page = $event"
+          ></pagination-controls>
+        </div>
+        <div class="col-md-1 mx-auto">
+          <button
+            type="button"
+            class="btn btn-success btn-block mb-4"
+            (click)="logout()"
+          >
+            Log out
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<div *ngIf="!isOnline" class="d-flex justify-content-center">
+  <img src="../../assets/no-connection.jpg" />
+</div>

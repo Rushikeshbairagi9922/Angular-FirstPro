@@ -1,0 +1,18 @@
+<p>rectivedemo works!</p>
+
+<div >
+
+    <form [formGroup] ="contactInfo" (ngSubmit) = "onSubmit()">
+        <label>Full Name</label>
+        <input type="text" name="fullname" id="fullname" formControlName = "fullname" ><br>
+        <label>Email</label>
+        <input type="text" name="email" id="email" formControlName = "email"><br>
+        <label>Password</label>
+        <input type="password" name="password" id="password" formControlName = "password" ><br>
+        <label >Date Of Birth</label>
+        <input type="date" name="dob" id="dob" formControlName = "dob"><br>
+        <button type="submit">Submit</button>
+        
+    </form>
+</div>
+

@@ -1,0 +1,14 @@
+<p>emp-route works!</p>
+<div class="card d-flex justify-content-center" style="width: 28rem;">
+
+    <h3 class="card-title text-center">Employee Info</h3>
+    
+    <ul class="card-body text-center " *ngIf="employee" style="font-size: large;">
+        <p class="list-group-item">Employee Id : {{employee.id}}</p>
+        <p class="list-group-item">Employee Name : {{employee.name}}</p>
+        <p class="list-group-item">Gender : {{employee.gender}}</p>
+        <p class="list-group-item" >Salary : {{employee.salary}}</p>
+    </ul>
+
+    <button class="btn btn-primary " (click)="back()">Back</button>
+</div>

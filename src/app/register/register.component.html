@@ -1,0 +1,269 @@
+<section *ngIf="isOnline" class="h-70 gradient-form" style="background-color: #eee">
+  <div class="container p-2 h-50">
+    <div class="row d-flex justify-content-center align-items-center h-50">
+      <div class="col-xl-7">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-10 mx-auto">
+              <div class="card-body p-md-5 mx-md-10">
+                <div class="text-center">
+                  <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                    style="width: 185px"
+                    alt="logo"
+                  />
+                  <h4 class="mt-1 mb-5 pb-1">Registration</h4>
+                </div>
+
+                <form [formGroup]="registerInfo" (ngSubmit)="onSubmit()">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="form-outline mb-4 mx-auto">
+                      <label class="form-label" for="form2Example11"
+                        >First Name</label
+                      >
+                      <input
+                        type="text"
+                        id="form2Example11"
+                        class="form-control"
+                        name="firstname"
+                        placeholder="Enter FirstName"
+                        formControlName="firstname"
+                        required
+                      />
+                      <div
+                        *ngIf="
+                          registerInfo.get('firstname')?.hasError('required') &&
+                          registerInfo.get('firstname')?.touched
+                        "
+                        class="text-danger text-sm"
+                      >
+                        <small>First Name required</small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo.get('firstname')?.hasError('pattern') &&
+                          registerInfo.get('firstname')?.touched
+                        "
+                        class="text-danger text-sm"
+                      >
+                        <small>Must Be Char</small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo
+                            .get('firstname')
+                            ?.hasError('minlength') &&
+                          registerInfo.get('firstname')?.touched
+                        "
+                        class="text-danger text-sm"
+                      >
+                        <small>At least 4 Char required</small>
+                      </div>
+                      
+                    </div>
+
+                    <div class="form-outline mb-4 mx-auto">
+                      <label class="form-label" for="form2Example11"
+                        >Last Name</label
+                      >
+                      <input
+                        type="text"
+                        id="form2Example11"
+                        class="form-control"
+                        name="lastname"
+                        placeholder="Enter LastName"
+                        formControlName="lastname"
+                      />
+                      <div
+                        *ngIf="
+                          registerInfo.get('lastname')?.hasError('required') &&
+                          registerInfo.get('lastname')?.touched
+                        "
+                        class="text-danger text-sm"
+                      >
+                        <small>Last Name required</small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo.get('lastname')?.hasError('pattern') &&
+                          registerInfo.get('lastname')?.touched
+                        "
+                        class="text-danger text-sm"
+                      >
+                        <small>must be char</small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo.get('lastname')?.hasError('minlength') &&
+                          registerInfo.get('lastname')?.touched
+                        "
+                        class="text-danger text-sm"
+                      >
+                        <small>At least 4 Char required</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="form-outline mb-4 mx-auto">
+                      <label class="form-label" for="form2Example11"
+                        >Email</label
+                      >
+                      <input
+                        type="email"
+                        id="form2Example11"
+                        class="form-control"
+                        name="email"
+                        placeholder="Enter Email Address"
+                        formControlName="email"
+                      />
+                      <div
+                        *ngIf="
+                          registerInfo.get('email')?.hasError('required') &&
+                          registerInfo.get('email')?.touched
+                        "
+                        class="text-danger text-sm"
+                      >
+                        <small> Email is required.</small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo.get('email')?.hasError('email') &&
+                          registerInfo.get('email')?.touched
+                        "
+                        class="text-danger text-sm"
+                      >
+                        <small> Please enter a valid email address.</small>
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4 mx-auto">
+                      <label class="form-label" for="form2Example11"
+                        >Mobile Number</label
+                      >
+                      <input
+                        type="text"
+                        id="form2Example11"
+                        class="form-control"
+                        name="mobile"
+                        placeholder="Enter Mobile Number"
+                        formControlName="mobile"
+                      />
+                      <div
+                        *ngIf="
+                          registerInfo.get('mobile')?.hasError('required') &&
+                          registerInfo.get('mobile')?.touched 
+                          
+
+                        "
+                        class="text-danger"
+                      >
+                        <small> Mobile is required.</small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo.get('mobile')?.hasError('pattern') &&
+                          registerInfo.get('mobile')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        <small> Mobile number must be 10 digit.</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="form-outline mb-4 mx-auto">
+                      <label class="form-label" for="form2Example22"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        id="form2Example22"
+                        name="password"
+                        class="form-control"
+                        placeholder="Enter Password"
+                        formControlName="password"
+                      />
+                      <div
+                        *ngIf="
+                          registerInfo.get('password')?.hasError('required') &&
+                          registerInfo.get('password')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        <small> Password is required.</small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo.get('password')?.hasError('minlength') &&
+                          registerInfo.get('password')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        <small> Password 8 char long. </small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo.get('password')?.hasError('pattern') &&
+                          registerInfo.get('password')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        <small> Password [A-Z],[a-z],[0-9],[@,#,$,&].</small>
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4 mx-auto">
+                      <label class="form-label" for="form2Example22">Confirm Password</label>
+                      <input
+                        type="password"
+                        id="form2Example22"
+                        name="confirmPass"
+                        class="form-control"
+                        placeholder="Re-Enter Password"
+                        formControlName="confirmPass"
+                      />
+                      <div
+                        *ngIf="
+                          registerInfo
+                            .get('confirmPass')
+                            ?.hasError('required') &&
+                          registerInfo.get('confirmPass')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        <small>Password is required.</small>
+                      </div>
+                      <div
+                        *ngIf="
+                          registerInfo
+                            .get('confirmPass')
+                            ?.hasError('required') &&
+                          registerInfo.get('confirmPass')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        <small>Password not match.</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="text-center pt-3 pb-1">
+                    <button
+                      class="btn btn-primary btn-block fa-lg gradient-custom-2"
+                      type="submit"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="!isOnline" class="d-flex justify-content-center" >
+  <img  src="../../assets/no-connection.jpg" > 
+</div>

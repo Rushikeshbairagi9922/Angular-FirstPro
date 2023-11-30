@@ -1,0 +1,207 @@
+<!-- Default form register -->
+<div class="col-6 mx-auto mt-2">
+<form
+  #studentInfo="ngForm"
+  (ngSubmit)="onSubmit(studentInfo)"
+  class="text-center border border-link pt-2 mt-4 mb-4 mx-auto bg-primary "
+>
+  <p class="h2 mb-4 mt-2 text-light">Sign up</p>
+  <div class="form-row mb-4 col-10  mx-auto">
+    <div class="text-light col-1">  Fullname:</div>
+      <input
+        type="text"
+        id="defaultRegisterFormFirstName"
+        class="form-control "
+        placeholder="Enter Full Name"
+        name="Name"
+        ngModel
+        required
+      />
+      <div *ngIf="studentInfo.controls['Name'].touched && studentInfo.controls['Name'].hasError('required')" class="text-danger">
+        Full Name is required
+      </div>
+    </div>
+  
+  <!-- E-mail -->
+  <div class="col-10 mx-auto">
+    <div class="text-light col-1">  Email:</div>
+  <input
+    type="email"
+    id="defaultRegisterFormEmail"
+    class="form-control mb-4 "
+    placeholder="Enter E-mail"
+    name="email"
+    ngModel
+  />
+</div>
+  <!-- Password -->
+  <div class="col-10 mx-auto">
+    <div class="text-light col-1">  Password:</div>
+      <input
+      type="password"
+      id="defaultRegisterFormPassword"
+      class="form-control mb-4"
+      placeholder="Enyter Password"
+      aria-describedby="defaultRegisterFormPasswordHelpBlock"
+      name="password"
+      ngModel
+      required
+      />
+      <!-- <div *ngIf="studentInfo.controls['password'].touched && studentInfo.controls['password'].hasError('required')" class="text-danger">
+        Password is required
+      </div> -->
+    </div>
+    <div class="col-10 mx-auto">
+      <div class="text-light col-3">Confirm Password:</div>
+  <input
+    type="password"
+    id="defaultRegisterFormPassword"
+    class="form-control mb-4"
+    placeholder="ReEnter Password"
+    aria-describedby="defaultRegisterFormPasswordHelpBlock"
+    ngModel
+    required
+   />
+  </div>
+  <div class="col-10 mx-auto">
+    <div class="text-light col-1">  Phone:</div>
+  <input
+    type="text"
+    id="defaultRegisterPhonePassword"
+    class="form-control mb-4"
+    placeholder="Enter Phone number"
+    aria-describedby="defaultRegisterFormPhoneHelpBlock"
+    name="password"
+    ngModel
+  />
+  </div>
+  <div class="col-10 mx-auto">
+    <div class="text-light col-1">  Address:</div>
+  <input
+    type="text"
+    id="defaultRegisterPhonePassword"
+    class="form-control mb-4"
+    placeholder="Enter Address"
+    aria-describedby="defaultRegisterFormPhoneHelpBlock"
+    name="address"
+    ngModel
+  />
+</div>
+  <div class="custom-control custom-radio custom-control-inline col-10 mx-auto">
+    <span class="p-2 text-light" name="Gender" ngModel>Gender : </span>
+    <input
+      type="radio"
+      class="custom-control-input"
+      id="defaultInline1"
+      name="Gender"
+      [(ngModel)]="selectedGender"
+      value="Male"
+      
+    />
+    <label class="custom-control-label p-2 text-light" for="defaultInline1">Male</label>
+
+    <input
+      type="radio"
+      class="custom-control-input"
+      id="defaultInline2"
+      name="Gender"
+      [(ngModel)]="selectedGender"
+      value="Female"
+   
+    />
+    <label class="custom-control-label p-2 text-light" for="defaultInline2" >Female</label>
+  </div>
+
+
+  <div class="custom-control custom-radio custom-control-inline mb-2 col-10 mx-auto">
+    <span class="p-2 text-light" name="Lang" ngModel>Language : </span>
+    <input
+      type="checkbox"
+      class="custom-control-input"
+      id="javaCheckbox"
+      name="Lang"
+      [(ngModel)]="selectedLanguages['Java']"
+      value="Java"
+      
+      
+    />
+    <label class="custom-control-label p-2 text-light" for="javaCheckbox">Java</label>
+
+    <input
+      type="checkbox"
+      class="custom-control-input"
+      id="angularCheckbox"
+      name="Lang"
+      [(ngModel)]="selectedLanguages['Angular']"
+      value="Angular"
+      
+   
+    />
+    <label class="custom-control-label p-2 text-light" for="angularCheckbox" >Angular</label>
+    <input
+      type="checkbox"
+      class="custom-control-input"
+      id="springCheckbox"
+      name="Lang"
+      [(ngModel)]="selectedLanguages['Spring']"
+      value="Spring"
+   
+    />
+    <label class="custom-control-label p-2 text-light" for="springCheckbox" >Spring</label>
+    <input
+      type="checkbox"
+      class="custom-control-input"
+      id="sqlCheckbox"
+      name="Lang"
+      [(ngModel)]="selectedLanguages['Sql']"
+      value="Sql"
+   
+    />
+    <label class="custom-control-label p-2 text-light" for="sqlCheckbox" >SQL</label>
+    <input
+      type="checkbox"
+      class="custom-control-input"
+      id="PythonCheckbox"
+      name="Lang"
+      [(ngModel)]="selectedLanguages['Python']"
+      value="Python"
+   
+    />
+    <label class="custom-control-label p-2 text-light" for="PythonCheckbox" >Python</label>
+    <input
+      type="checkbox"
+      class="custom-control-input"
+      id="reactjsCheckbox"
+      name="Lang"
+      [(ngModel)]="selectedLanguages['ReactJs']"
+      value="ReactJs"
+   
+    />
+    <label class="custom-control-label p-2 text-light" for="reactjsCheckbox" >ReactJs</label>
+  </div>
+  <div class="col-10 mx-auto">
+    <div class="text-light col-1">State:</div>
+  <select class="browser-default custom-select form-control  p-2 border-link  " name="state" ngModel >
+    <option value="" disabled>Choose State</option>
+    <option name="state" value="Maharashtra" selected>Maharashtra</option>
+    <option name="state" value="Gujarat">Gujarat</option>
+    <option name="state" value="Rajasthan">Rajasthan</option>
+    <option name="state" value="Uttar Pradesh">Uttar Pradesh</option>
+    <option name="state" value="Delhi">Delhi</option>
+  </select>
+  </div>
+  
+  
+  <div class="col-10 mx-auto">
+      <button
+      mdbBtn
+      color="info"
+      block="true"
+      class="btn btn-light my-4"
+      type="submit"
+      >
+      Sign in
+    </button>
+</div>
+</form>
+</div>
