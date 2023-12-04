@@ -10,3 +10,11 @@
     z-index: 9999;
     color: white;
   }
+
+  .zoom-effect{
+    transition: transform .2s ease-in-out;
+
+  }
+  .zoom-effect:hover{
+    transform: scale(1.2);
+    }

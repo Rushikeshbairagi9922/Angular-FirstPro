@@ -25,19 +25,84 @@
           />
         </div>
       </div>
-      <h6 class="col-md-1 mt-4 ">Search</h6>
+      <h6 class="col-md-1 mt-4">Search</h6>
 
       <table class="table">
         <thead>
           <tr class="table-success">
-            <th class="text-center">Id</th>
-            <th class="text-center">Title</th>
-            <th class="text-center">Category</th>
-            <th class="text-center">Price ($)</th>
-            <th class="text-center">Brand</th>
-            <th class="text-center">Discount</th>
-            <th class="text-center">Rating</th>
+            <!-- Add these lines inside the thead section of your table -->
+            <th (click)="onSort('id')" class="text-center">
+              Id
+              <i
+                *ngIf="sortColumn === 'id'"
+                [ngClass]="{
+                  'bi bi-arrow-up': sortDirection === 'asc',
+                  'bi bi-arrow-down': sortDirection === 'desc'
+                }"
+              ></i>
+            </th>
+            <th (click)="onSort('title')" class="text-center">
+              Title
+              <i
+                *ngIf="sortColumn === 'title'"
+                [ngClass]="{
+                  'bi bi-arrow-up': sortDirection === 'asc',
+                  'bi bi-arrow-down': sortDirection === 'desc'
+                }"
+              ></i>
+            </th>
+            <th (click)="onSort('category')" class="text-center">
+              Category
+              <i
+                *ngIf="sortColumn === 'category'"
+                [ngClass]="{
+                  'bi bi-arrow-up': sortDirection === 'asc',
+                  'bi bi-arrow-down': sortDirection === 'desc'
+                }"
+              ></i>
+            </th>
+            <th (click)="onSort('price')" class="text-center">
+              Price ($)
+              <i
+                *ngIf="sortColumn === 'price'"
+                [ngClass]="{
+                  'bi bi-arrow-up': sortDirection === 'asc',
+                  'bi bi-arrow-down': sortDirection === 'desc'
+                }"
+              ></i>
+            </th>
+            <th (click)="onSort('brand')" class="text-center">
+              Brand
+              <i
+                *ngIf="sortColumn === 'brand'"
+                [ngClass]="{
+                  'bi bi-arrow-up': sortDirection === 'asc',
+                  'bi bi-arrow-down': sortDirection === 'desc'
+                }"
+              ></i>
+            </th>
+            <th (click)="onSort('discountPercentage')" class="text-center">
+              Discount
+              <i
+                *ngIf="sortColumn === 'discountPercentage'"
+                [ngClass]="{
+                  'bi bi-arrow-up': sortDirection === 'asc',
+                  'bi bi-arrow-down': sortDirection === 'desc'
+                }"
+              ></i>
+            </th>
+            <th (click)="onSort('rating')" class="text-center">
+              Rating
+              <i
+                *ngIf="sortColumn === 'rating'"
+                [ngClass]="{
+                  'bi bi-arrow-up': sortDirection === 'asc',
+                  'bi bi-arrow-down': sortDirection === 'desc'
+                }"
+              ></i>
+            </th>
             <th class="text-center">Image</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
 
@@ -46,24 +111,24 @@
             let p of filteredProducts
               | paginate : { itemsPerPage: 5, currentPage: page }
           "
+          style="cursor: pointer"
+          [routerLink]="['/productdetail', p.id]"
         >
-          <td class="text-center mt-1">
-            <a [routerLink]="['/productdetail', p.id]">{{ p.id }}</a>
-          </td>
+          <td class="text-center mt-1">{{ p.id }}</td>
           <td class="text-center">{{ p.title }}</td>
           <td class="text-center">{{ p.category }}</td>
           <td class="text-center">${{ p.price }}</td>
           <td class="text-center">{{ p.brand }}</td>
           <td class="text-center">{{ p.discountPercentage }}%</td>
           <td class="text-center">{{ p.rating }}</td>
-
-          <td class="text-center mt-3">
+          <td class="text-center ">
             <img
               src="{{ p.thumbnail }}"
               style="height: 80px"
               class="img-thumbnail"
             />
           </td>
+          <td class="text-center"><button (click)="addtocart(p) " class="btn btn-success btn-block">Add cart</button></td>
         </tr>
       </table>
       <div class="row mt-5">
