@@ -23,6 +23,7 @@ export class Machinetest1listComponent implements OnInit {
   
   httpClient: any;
   
+  cart: Product[] = [];
 
   constructor(
     public rout: Router,
@@ -44,11 +45,20 @@ export class Machinetest1listComponent implements OnInit {
     this.form = new FormGroup({
       darkMode: new FormGroup(this.darkMode),
     });
+    this.cart = this.cartService.getCartItems();
+
+    // Subscribe to changes in the cart
+    // Subscribe to changes in the cart
+    this.cartService['cartUpdated$'].subscribe((updatedCart:any) => {
+      this.cart = updatedCart;
+    });
   }
 
   // logout btn code
   logout() {
     localStorage.removeItem('userData');
+    localStorage.removeItem('cart');
+
     this.rout.navigate(['MachineLogin']);
   }
 
@@ -106,17 +116,10 @@ export class Machinetest1listComponent implements OnInit {
     }
   }
 
-  // addtocart(p:any[]=[]){
-  //   let addproduct:any[] = p  ;
-  //   console.log("Add to cart",addproduct);
-  //  localStorage.setItem('addproduct',JSON.stringify(  addproduct ));
-  //  alert("Product added successfully");
-          
-
-  // }
 
   addtocart(product: Product) {
     this.cartService.addToCart(product);
     alert('Product added successfully to the cart!');
+    this.rout.navigate(['cart']);
   }
 }

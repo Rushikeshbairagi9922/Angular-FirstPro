@@ -1,6 +1,7 @@
 <body
   [ngClass]="{ 'table-container-dark': darkMode, 'table-container': !darkMode }"
 >
+
   <div *ngIf="isOnline" class="table-container">
     <div class="dark-mode-toggle form-check form-switch">
       <label>
@@ -13,19 +14,27 @@
         <label class="text-dark">Dark</label>
       </label>
     </div>
-    <div class="row justify-content-between">
-      <h1 class="text-center text-success col">Product List</h1>
-      <div class="table-responsive col-md-3">
-        <div class="search-bar mt-2 p-2">
-          <input
+    <div class="row justify-content-center mx-auto p-3">
+      <h1 class="text-center text-success col ">Product List</h1>
+      <div class="table-responsive col">
+        <div class="row  ">
+          <div class="search-bar  col-md-6 mx-auto ">
+            <input
             type="text"
             class="form-control"
             placeholder="Search by title, category, brand, etc."
             [(ngModel)]="searchTerm"
-          />
-        </div>
+            />
+          </div>
+          <div class="col text-center p-0 m-0 mx-auto" >
+            <a routerLink="/cart" class="navbar-brand  ">
+              <i class="bi bi-cart"></i>
+              <!-- Display the number of items in the cart if available -->
+              <span *ngIf="cart.length > 0" class="badge bg-danger">{{ cart.length }}</span>
+            </a>
+          </div>
       </div>
-      <h6 class="col-md-1 mt-4">Search</h6>
+      </div>
 
       <table class="table">
         <thead>

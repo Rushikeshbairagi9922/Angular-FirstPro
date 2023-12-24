@@ -30,6 +30,7 @@ import { Machinetest1listComponent } from './machinetest1list/machinetest1list.c
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MachinetestLoginComponent } from './machinetest-login/machinetest-login.component';
 import { MachinetestproductdetailComponent } from './machinetestproductdetail/machinetestproductdetail.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -56,6 +57,7 @@ import { MachinetestproductdetailComponent } from './machinetestproductdetail/ma
     Machinetest1listComponent,
     MachinetestLoginComponent,
     MachinetestproductdetailComponent,
+    CartComponent,
     
     ],
   imports: [

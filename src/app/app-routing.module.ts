@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MOvieComponent } from './movie/movie.component';
@@ -17,6 +17,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { Machinetest1listComponent } from './machinetest1list/machinetest1list.component';
 import { MachinetestLoginComponent } from './machinetest-login/machinetest-login.component';
 import { MachinetestproductdetailComponent } from './machinetestproductdetail/machinetestproductdetail.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
     {path:'Home', component:HomeComponent},
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path:'UserHomeComponent' , component:UserHomeComponent},
   {path :'Machinetest1list', component:Machinetest1listComponent},
   {path : 'MachineLogin', component:MachinetestLoginComponent},
-  {path : 'productdetail/:id', component:MachinetestproductdetailComponent}
+  {path : 'productdetail/:id', component:MachinetestproductdetailComponent},
+  {path : 'cart', component:CartComponent}
 
 ];
 
