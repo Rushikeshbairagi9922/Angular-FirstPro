@@ -12,6 +12,7 @@ export class CartComponent implements OnInit{
 
   cart !: Product[] ;
   totalCost: number = 0;
+  orders: any[] = []; 
 
   constructor(public _carts: CartServiceService, public rout: Router){}
 
@@ -48,4 +49,26 @@ export class CartComponent implements OnInit{
   back() {
     this.rout.navigate(['Machinetest1list']);
   }
+
+  buyProducts() {
+    // Create a copy of the cart to avoid modifying the original data
+    const purchasedItems = [...this.cart];
+
+    // Add the purchased items to the orders array
+    this.orders.push({
+      date: new Date(),
+      items: purchasedItems,
+      totalCost: this.totalCost.toFixed(2),
+    });
+
+    console.log('Orders:', this.orders);
+}
+
+cancelOrder(order: any) {
+  const index = this.orders.indexOf(order);
+  if (index !== -1) {
+    // Remove the order from the orders array
+    this.orders.splice(index, 1);
+  }
+}
 }

@@ -119,7 +119,7 @@ export class Machinetest1listComponent implements OnInit {
 
   addtocart(product: Product) {
     this.cartService.addToCart(product);
-    alert('Product added successfully to the cart!');
+    // alert('Product added successfully to the cart!');
     this.rout.navigate(['cart']);
   }
 }

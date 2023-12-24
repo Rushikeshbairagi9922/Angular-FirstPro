@@ -2,7 +2,7 @@
   [ngClass]="{ 'table-container-dark': darkMode, 'table-container': !darkMode }"
 >
 
-  <div *ngIf="isOnline" class="table-container">
+  <div *ngIf="isOnline" class="table-container justify-content-between">
     <div class="dark-mode-toggle form-check form-switch">
       <label>
         <input
@@ -14,11 +14,11 @@
         <label class="text-dark">Dark</label>
       </label>
     </div>
-    <div class="row justify-content-center mx-auto p-3">
-      <h1 class="text-center text-success col ">Product List</h1>
-      <div class="table-responsive col">
+    <div class="row d-flex justify-content-between p-3 align-item-center">
+      <h1 class="text-center text-success col-md-2 p-2 " style="margin-left: 1000;">Product List</h1>
+      <div class="table-responsive col-md-4 p-3">
         <div class="row  ">
-          <div class="search-bar  col-md-6 mx-auto ">
+          <div class="search-bar col-md-3 p-0 m-0  " style="position: fixed; ">
             <input
             type="text"
             class="form-control"
@@ -26,7 +26,7 @@
             [(ngModel)]="searchTerm"
             />
           </div>
-          <div class="col text-center p-0 m-0 mx-auto" >
+          <div class=" text-center col-md-7 p-0 m-0" style="position: fixed;">
             <a routerLink="/cart" class="navbar-brand  ">
               <i class="bi bi-cart"></i>
               <!-- Display the number of items in the cart if available -->
